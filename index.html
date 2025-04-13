@@ -40,3 +40,22 @@
   </audio>
 
   <button id="playPauseBtn" class="heart-button">♥</button>
+
+  <script>
+    const audio = document.getElementById('myAudio');
+    const button = document.getElementById('playPauseBtn');
+
+    audio.volume = 1.0;
+
+    button.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        button.textContent = '♥';
+      } else {
+        audio.pause();
+        button.textContent = '♡';
+      }
+    });
+  </script>
+</body>
+</html>
