@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Heart Shaped Audio Button</title>
+  <title>True Heart Button</title>
   <style>
     body {
       margin: 0;
@@ -13,49 +13,67 @@
       height: 100vh;
     }
 
-    .heart-button {
-      background: #3f196b;
-      clip-path: path("M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
-      2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 
-      14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 
-      11.54L12 21.35z");
-      width: 32px;
-      height: 32px;
-      border: none;
-      color: white;
-      font-size: 12px;
-      line-height: 1;
-      padding: 0;
+    .heart {
+      width: 24px;
+      height: 24px;
+      background-color: #3f196b;
+      position: relative;
+      transform: rotate(-45deg);
       cursor: pointer;
+      transition: background-color 0.2s ease;
     }
 
-    .heart-button:hover {
-      filter: brightness(1.2);
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 24px;
+      height: 24px;
+      background-color: #3f196b;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -12px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 12px;
+      top: 0;
+    }
+
+    .heart.off,
+    .heart.off::before,
+    .heart.off::after {
+      background-color: #ccc; /* 꺼졌을 때 색 (연회색) */
     }
   </style>
 </head>
 <body>
+
   <audio id="myAudio" autoplay loop>
     <source src="Don_t Go Outside.mp3" type="audio/mpeg">
   </audio>
 
-  <button id="playPauseBtn" class="heart-button">♥</button>
+  <div class="heart" id="heartBtn"></div>
 
   <script>
     const audio = document.getElementById('myAudio');
-    const button = document.getElementById('playPauseBtn');
+    const heart = document.getElementById('heartBtn');
 
     audio.volume = 1.0;
 
-    button.addEventListener('click', () => {
+    heart.addEventListener('click', () => {
       if (audio.paused) {
         audio.play();
-        button.textContent = '♥';
+        heart.classList.remove('off');
       } else {
         audio.pause();
-        button.textContent = '♡';
+        heart.classList.add('off');
       }
     });
   </script>
+
 </body>
 </html>
