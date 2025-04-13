@@ -1,8 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Playlist</title>
+  <title>Dark Audio Player</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #1a0f2f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    audio {
+      width: 300px;
+      filter: brightness(1.1);
+    }
+  </style>
 </head>
 <body>
   <audio controls autoplay loop>
@@ -11,3 +26,4 @@
   </audio>
 </body>
 </html>
+
