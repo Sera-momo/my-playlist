@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Custom Audio Button</title>
+  <title>Heart Audio Button</title>
   <style>
     body {
       margin: 0;
@@ -18,10 +18,12 @@
       color: white;
       border: none;
       border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      font-size: 24px;
+      width: 28px;
+      height: 28px;
+      font-size: 12px;
+      line-height: 1;
       cursor: pointer;
+      padding: 0;
     }
 
     button:hover {
@@ -34,7 +36,7 @@
     <source src="Don_t Go Outside.mp3" type="audio/mpeg">
   </audio>
 
-  <button id="playPauseBtn">❚❚</button>
+  <button id="playPauseBtn">♥</button>
 
   <script>
     const audio = document.getElementById('myAudio');
@@ -45,10 +47,10 @@
     button.addEventListener('click', () => {
       if (audio.paused) {
         audio.play();
-        button.textContent = '❚❚'; // 일시정지 표시
+        button.textContent = '♥';
       } else {
         audio.pause();
-        button.textContent = '▶'; // 재생 표시
+        button.textContent = '♡';
       }
     });
   </script>
