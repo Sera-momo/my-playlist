@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mini Audio Player</title>
+  <title>Custom Audio Button</title>
   <style>
     body {
       margin: 0;
@@ -13,18 +13,44 @@
       height: 100vh;
     }
 
-    audio {
-      width: 140px;   /* 가로 길이 최소화 */
-      height: 25px;   /* 세로는 브라우저 따라 고정이라 최대한 줄임 */
-      opacity: 1;
+    button {
+      background-color: #3f196b;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      filter: brightness(1.2);
     }
   </style>
 </head>
 <body>
-  <audio controls autoplay loop>
+  <audio id="myAudio" autoplay loop>
     <source src="Don_t Go Outside.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
   </audio>
+
+  <button id="playPauseBtn">❚❚</button>
+
+  <script>
+    const audio = document.getElementById('myAudio');
+    const button = document.getElementById('playPauseBtn');
+
+    audio.volume = 1.0;
+
+    button.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        button.textContent = '❚❚'; // 일시정지 표시
+      } else {
+        audio.pause();
+        button.textContent = '▶'; // 재생 표시
+      }
+    });
+  </script>
 </body>
 </html>
-
