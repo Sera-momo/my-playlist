@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dark Audio Player</title>
+  <title>Minimal Audio Player</title>
   <style>
     body {
       margin: 0;
-      background-color: #1a0f2f;
+      background: transparent; /* 배경 완전 투명 */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -14,8 +14,9 @@
     }
 
     audio {
-      width: 300px;
-      filter: brightness(1.1);
+      width: 180px;   /* 가로 크기 줄임 */
+      height: 25px;   /* 세로 높이 줄임 (브라우저마다 약간 차이 있음) */
+      opacity: 1;
     }
   </style>
 </head>
@@ -26,4 +27,3 @@
   </audio>
 </body>
 </html>
-
